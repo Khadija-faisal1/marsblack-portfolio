@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "orbitron";
+  src: url("/assets/fonts/orbitron/theleagueof-orbitron-13e6a52/Orbitron Light.ttf");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "pixel";
+  src: url("/assets/fonts/ds_digital/DS-DIGI.TTF");
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-orbitron: "orbitron", sans-serif;
+  --font-pixel: "pixel", monospace;
+  --color-accent: #d92a00;
+
+  --animate-blink: blink 1s steps(1) infinite;
+  --animate-index-fade: index-fade 0.45s ease;
+
+  --animate-eq: eq 0.9s ease-in-out infinite;
+  --animate-beam: beam 3.6s linear infinite;
+
+  @keyframes eq {
+    0%,
+    100% {
+      transform: scaleY(0.2);
+    }
+    50% {
+      transform: scaleY(1);
+    }
+  }
+  @keyframes beam {
+    from {
+      transform: translateY(-10vh);
+    }
+    to {
+      transform: translateY(110vh);
+    }
+  }
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+  @keyframes index-fade {
+    from {
+      opacity: 0;
+      transform: scale(1.03);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+}
+
+@layer base {
+  html,
+  body {
+    @apply w-full overflow-x-hidden bg-white text-black;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  html::-webkit-scrollbar,
+  body::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
